@@ -1,1 +1,73 @@
-1. Tworzymy w virtual boxie 3 maszyny
+1. Tworzymy 3 maszyny w środowisku VirtualBox
+
+
+2. Tworzymy dwie sieci NAT:
+
+
+
+
+
+
+
+3. Wybieramy maski podsieci oraz adresy IP
+
+bazowy adres to 172.22.128.0/17
+
+dokonujemy podziału adresu na:
+255.255.254.0 maska /23 (CIDR) – dla 500 urządzeń
+255.255.224.0 maska /19 (CIDR) – dla 5000 urządzeń
+
+172.22.128.0/19 – 8190 ( liczba adresów IP dla urządzeń)
+172.22.128.0/23 – 510 (liczba adresów IP dla urządzeń)
+
+
+
+PC – 0
+na karcie sieciowej nr 1 podłączony do NAT
+na karcie sieciowej nr 2 podłączony do sieci NAT LAN - 1
+na karcie sieciowej nr 3 podłączony do sieci NAT LAN - 2
+
+PC – 1 
+podłączony na karcie sieciowej nr 1 do sieci LAN - 1
+
+PC – 2
+podłączony na karcie sieciowej nr 1 do sieci LAN - 2
+Ustawienie konfiguracji sieci dla PC0:
+Ustawienie konfiguracji sieci dla PC – 1:
+
+Ustawienie konfiguracji sieci dla PC – 2:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4. Ustawiamy routing na maszynach PC – 1 oraz PC – 2
+
+
+5.  Ustawiamy forwardowanie dla PC0
+
+odkomentowujemy linijke net.ipv4.ip_forward=1
+
+
+6. Dodajemy masquerade dla PC0
+
+
